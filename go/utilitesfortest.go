@@ -1,4 +1,4 @@
-// (c) Essentia - 2018
+// (c)  - 2018
 // Savchenko Arthur
 // 18-12-2018 
 
@@ -10,7 +10,7 @@ package main
 import (	
     "fmt"
     "io/ioutil"
-   	"time"
+    "time"
     "log"
     "flag"
     "net/http"
@@ -24,8 +24,8 @@ import (
 // 
 func main() {
 
-	 // // Command-Line Flags
-	 ip    := flag.String ("ip",      "127.0.0.1",   "Ip")
+     // Command-Line Flags
+     ip    := flag.String ("ip",      "127.0.0.1",   "Ip")
      port  := flag.String ("port",    "8545",        "Port")
      pass  := flag.String ("pass",    "Secret00$$$", "Password")
      from  := flag.String ("from",    "",            "From")

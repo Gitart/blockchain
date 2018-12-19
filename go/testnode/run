@@ -1,0 +1,26 @@
+#!/bin/bash
+
+clear
+NOWF=$(date +"%d-%m-%Y %T")
+echo Time $NOWF
+#echo "Текущий каталог " $PWD
+echo Time $NOWF>>log/log.txt
+echo
+
+export GOPATH=$PWD
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+#export CGO_ENABLED=0
+
+# echo load gorn
+# go get github.com/jinzhu/gorm
+
+# echo load sqllite
+# go get github.com/jinzhu/gorm/dialects/sqlite
+
+# go get github.com/fatih/color
+# go test -v . | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/''
+
+#echo Start GO programm
+go build -o essproxy
+./essproxy

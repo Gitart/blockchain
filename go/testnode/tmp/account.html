@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+          <title>Nodes</title>
+
+          <style>
+              .theadst{background-color: #554080;color: #ccc;}
+              thead>tr>th {text-align: center;}
+          </style>
+
+        {{template "libs"}}
+        <script type="text/javascript">
+                    // Table css
+          $(document).ready(function() {
+                $('#rls').DataTable({
+                          "language": {
+                            "decimal":      ",",
+                            "thousands":    ".",
+                            "search":       "Search ",
+                            "lengthMenu":   "Display _MENU_ records per page",
+                                                        "zeroRecords":  "No data",
+                                                        "info":         "Showing page _PAGE_ of _PAGES_",
+                                                        "infoEmpty":    "No records available",
+                                                        "infoFiltered": "(filtered from _MAX_ total records)"
+                          },
+
+                        "scrollY":        "600px",
+                                        "scrollCollapse": true,
+                        "paging":         false,
+                        "ordering":       true,
+                        "info":           false,
+                        "order":          [[ 2, "desc" ]]
+                        //"dom":            '<"toolbar">frtip'
+
+
+                    });
+
+                                    $("div.toolbar").html('<h4>{{.Title}} </h4> <b>{{.Descript}} Date : {{.Datrep}}</b>');
+          });
+
+
+
+
+          // Open new account
+          function OpenNewAccount(){
+
+                    aa=$("#nodeip").val();
+                    var Ur="http://localhost:8545/ac/newopen/"+aa;
+          
+                    $.ajax({ url : Ur,
+                             async : false,
+                             cache : true,
+                             success: function(data) {
+                                      //$("#Notifys").show(2000).delay(5000).hide(100); 
+                                      // $("#aplanner").load(location.href + " #aplanner").fadeIn("slow"); 
+                                      $("#numaccount").val(data);
+                                      // alert(data);
+                               },
+                        });
+
+                    
+                    $("#ip").val(aa);
+
+          }
+
+
+          // Показ IP ноды
+          function Chnode(){
+                      aa=$("#nodeip").val();
+                      $("#ip").val(aa);                      
+          }
+
+
+         // Просомтр всех нод
+         function PreviewAllNodes(){
+                    var Ur="/nodes/";
+          
+                    $.ajax({ url : Ur,
+                             async : false,
+                             cache : true,
+                             success: function(data) {
+                                      //$("#Notifys").show(2000).delay(5000).hide(100); 
+                                      // $("#aplanner").load(location.href + " #aplanner").fadeIn("slow"); 
+                                      // $("#informnodes").val(data);
+                                      // alert(data);
+
+                                       $("#stageallnode").html(data);
+                               },
+                        });
+
+         }
+
+        </script>
+    </head>
+
+<body onload="Chnode()">
+  <div class="container">
+       <br>    
+       {{template "header"}}
+       <h2 style="color: #FF5733;">Account managment panel</h2>
+
+        <div class="card">
+                    <div class="card-header" style="background-color:#red;">
+                         <h5>Admin panel</h5>
+                    </div>
+
+
+                    <div class="card-body" style="margin: 15px;">
+                                                      
+                            <form action="/ac/newopen/" class="form-inliness">
+                              
+                              <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Nodes :</label>
+                                   
+                                   <div class="col-sm-10">
+                                     <select class="form-control" id="nodeip" onchange="Chnode()" >
+                                           <option value="18.188.111.198">Gess 01</option>
+                                           <option value="18.188.240.197">Gess 02</option>
+                                           <option value="18.217.164.134">Gess 03</option>
+                                           <option value="18.224.11.186">Gess 04</option>
+                                           <option value="18.224.106.72">Gess 05</option>
+                                           <option value="18.224.121.61">Miner 01</option>
+                                           <option value="18.224.159.84">Miner 02</option>
+                                           <option value="18.224.168.178">Miner 03</option>
+                                           <option value="18.224.198.158">Miner 04</option>
+                                           <option value="18.224.218.68">Bootnode 01</option>
+                                           <option value="18.224.50.75">Bootnode 02</option>
+                                  </select>
+                                </div>
+                              </div>    
+
+
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="ip">IP:</label>
+                                <div class="col-sm-10">
+                                     <input type="text" class="form-control" id="ip" disabled="false">
+                                </div>     
+                              </div> 
+                              
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Account Info</label>
+                                <div class="col-sm-10">
+                                     <input type="text" class="form-control" id="numaccount">
+                                </div>                                     
+                              </div>
+
+
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nodes Info:</label>
+                                <div class="col-sm-10">
+                                       <!-- <textarea rows="120"   class="form-control" id="informnodes" style="margin-top: 0px; margin-bottom: 0px; height: 134px;"></textarea> -->
+                                       <input type="text" class="form-control" id="informnodes" class="form-control" id="informnodes" >
+                                       
+                                </div>       
+                              </div>
+
+
+
+                              <div class="form-group row">
+                                    <div id="stageallnode" class="col-sm-10" style="font-size:12px;">
+                                      
+                                    </div>  
+                              </div>                                    
+
+
+                              <!-- <div class="form-group form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox"> Remember me
+                                </label>
+                              </div>
+                               -->
+                                <hr>
+                                <!-- <button type="submit" class="btn btn-primary">Open new account</button> -->
+                                <button type="button" class="btn btn-primary" onclick="OpenNewAccount()">Открыть новый счет</button>
+                                <button type="button" class="btn btn-success" onclick="PreviewAllNodes()">Сосотояние всех нод</button>
+
+
+                                <!-- <a href="/nodes/">Preview all nodes</a><br>       -->
+                              </form>
+
+                          
+                          
+                    </div>
+
+                      <div class="card-footer">Essentia</div>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+          <title>Nodes</title>
+
+          <style>
+              .theadst{background-color: #554080;color: #ccc;}
+              thead>tr>th {text-align: center;}
+          </style>
+
+        {{template "libs"}}
+        <script type="text/javascript">
+                    // Table css
+          $(document).ready(function() {
+                $('#rls').DataTable({
+                          "language": {
+                            "decimal":      ",",
+                            "thousands":    ".",
+                            "search":       "Search ",
+                            "lengthMenu":   "Display _MENU_ records per page",
+                                                        "zeroRecords":  "No data",
+                                                        "info":         "Showing page _PAGE_ of _PAGES_",
+                                                        "infoEmpty":    "No records available",
+                                                        "infoFiltered": "(filtered from _MAX_ total records)"
+                          },
+
+                        "scrollY":        "600px",
+                                        "scrollCollapse": true,
+                        "paging":         false,
+                        "ordering":       true,
+                        "info":           false,
+                        "order":          [[ 2, "desc" ]]
+                        //"dom":            '<"toolbar">frtip'
+
+
+                    });
+
+                                    $("div.toolbar").html('<h4>{{.Title}} </h4> <b>{{.Descript}} Date : {{.Datrep}}</b>');
+          });
+
+
+
+
+          // Open new account
+          function Launchtest(){
+
+                    aa=$("#nodeip").val();
+                    var Ur="http://localhost:8545/htransact/"+aa;
+          
+                    $.ajax({ url : Ur,
+                             async : false,
+                             cache : true,
+                             success: function(data) {
+                                      //$("#Notifys").show(2000).delay(5000).hide(100); 
+                                      // $("#aplanner").load(location.href + " #aplanner").fadeIn("slow"); 
+                                      $("#numaccount").val(data);
+                                      // alert(data);
+                               },
+                        });
+
+                    
+                    $("#ip").val(aa);
+
+          }
+
+
+          // Показ IP ноды
+          function Chnode(){
+                      aa=$("#nodeip").val();
+                      $("#ip").val(aa);                      
+          }
+
+
+         // Просомтр всех нод
+         function PreviewAllNodes(){
+                    var Ur="/nodes/";
+          
+                    $.ajax({ url : Ur,
+                             async : false,
+                             cache : true,
+                             success: function(data) {
+                                      //$("#Notifys").show(2000).delay(5000).hide(100); 
+                                      // $("#aplanner").load(location.href + " #aplanner").fadeIn("slow"); 
+                                      // $("#informnodes").val(data);
+                                      // alert(data);
+
+                                       $("#stageallnode").html(data);
+                               },
+                        });
+
+         }
+
+        </script>
+    </head>
+
+<body onload="Chnode()">
+  <div class="container">
+       <br>    
+       {{template "header"}}
+       <h2 style="color: #FF5733;">Account managment panel</h2>
+
+        <div class="card">
+                    <div class="card-header" style="background-color:#red;">
+                         <h5>Admin panel</h5>
+                    </div>
+
+
+                    <div class="card-body" style="margin: 15px;">
+                                                      
+
+                               <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Account Info</label>
+                                <div class="col-sm-10">
+                                     <input type="text" class="form-control" id="numaccount">
+                                </div>                                     
+                              </div>
+                                <h2>Тест панель</h2>
+                                <hr>
+
+                                <button type="button" class="btn btn-primary" onclick="Launchtest()">Запуск теста</button>
+                                <button type="button" class="btn btn-success" onclick="PreviewAllNodes()">Сосотояние всех нод</button>
+
+
+
+
+                          
+                          
+                    </div>
+
+                      <div class="card-footer">Essentia</div>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>

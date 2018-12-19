@@ -34,11 +34,11 @@ export PATH=$PATH:$GOROOT/bin
 
 go build -o util
 #./util -ip="18.188.111.198" -port="8545" -pass=Secretword -from=0x7cfe90b21d7e8bb46cf52e367ade8674891e0658 -to=0x38f50f4aa11b003893c93a4f70c088611502fc82 -cnt=10 -money=5000 -unlock=true
-#./util -ip=127.0.0.1 -port=8545 -pass=Gerda1000 -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=200000000000000000 -unlock=true
-#./util -ip=127.0.0.1 -port=8545 -pass=Gerda1000 -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=500000 -gas=30500 -unlock=true
+#./util -ip=127.0.0.1 -port=8545 -pass=Password -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=200000000000000000 -unlock=true
+#./util -ip=127.0.0.1 -port=8545 -pass=Password -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=500000 -gas=30500 -unlock=true
 
-./util -ip=127.0.0.1 -port=8545 -pass=Gerda1000 -to=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -from=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=700000 -gas=30500 -unlock=true
-./util -ip=127.0.0.1 -port=8545 -pass=Gerda1000 -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=2220000 -gas=30500 -unlock=true
+./util -ip=127.0.0.1 -port=8545 -pass=Pasword -to=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -from=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=700000 -gas=30500 -unlock=true
+./util -ip=127.0.0.1 -port=8545 -pass=Pasword -from=0xd1ddfccfb920ba9d8ec88f8c2523a575db84c31b -to=0x11527779cd10b3f47c1fcc6dfe1084e0e34e6550 -cnt=2 -money=2220000 -gas=30500 -unlock=true
 
 
 

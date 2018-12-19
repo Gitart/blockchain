@@ -1,7 +1,6 @@
 // 
 // Copyright 2018
 // Test module for hight load 
-// Essentia
 // Savchenko Arthur
 // 14-02-2018 
 

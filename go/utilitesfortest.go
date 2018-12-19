@@ -1,4 +1,4 @@
-// (c)  - 2018
+// (c) Kvark - 2018
 // Savchenko Arthur
 // 18-12-2018 
 

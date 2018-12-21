@@ -1,6 +1,8 @@
 ## Создание токена ERC20 в Ethereum для ICO
 
 http://echain.ru/obuchenie/uroki-solidity/sozdanie-tokena-erc20-v-ethereum-dlya-ico
+https://habr.com/post/344578/
+https://habr.com/post/312008/
 
 В этом уроке речь пойдет о коде токена ERC20 в сети Ethereum. Такие токены используются для ICO.
 Будет разобран код токена, взятый на сайте https://ethereum.org/token:
